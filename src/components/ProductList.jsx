@@ -1,3 +1,4 @@
+// src/components/ProductList.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { isInCart } from "../utils/cartHelpers";
@@ -20,13 +21,13 @@ const ProductList = ({ products, cart, addToCart }) => {
         {currentProducts.map((product) => {
           const inCart = isInCart(cart, product.id);
           return (
-            <div key={product.id} className="bg-white shadow rounded-lg p-4">
+            <div key={product.id} className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
               <img
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-48 object-cover rounded-lg"
               />
-              <h3 className="mt-4 text-lg font-semibold text-gray-800">
+              <h3 className="mt-4 text-lg font-semibold text-gray-800 dark:text-gray-100">
                 {product.name}
               </h3>
               <p className="text-indigo-600 font-bold">${product.price}</p>
@@ -45,7 +46,7 @@ const ProductList = ({ products, cart, addToCart }) => {
                       ? inCart
                         ? "bg-green-600 text-white cursor-default"
                         : "bg-indigo-600 text-white hover:bg-indigo-700"
-                      : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      : "bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-300 cursor-not-allowed"
                   }`}
                 >
                   {product.inStock
@@ -66,7 +67,7 @@ const ProductList = ({ products, cart, addToCart }) => {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="px-3 py-1 rounded-lg bg-gray-200 text-gray-700 disabled:opacity-50"
+            className="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 disabled:opacity-50"
           >
             Prev
           </button>
@@ -78,7 +79,7 @@ const ProductList = ({ products, cart, addToCart }) => {
               className={`px-3 py-1 rounded-lg ${
                 currentPage === index + 1
                   ? "bg-indigo-600 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
               }`}
             >
               {index + 1}
@@ -90,7 +91,7 @@ const ProductList = ({ products, cart, addToCart }) => {
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
             disabled={currentPage === totalPages}
-            className="px-3 py-1 rounded-lg bg-gray-200 text-gray-700 disabled:opacity-50"
+            className="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 disabled:opacity-50"
           >
             Next
           </button>

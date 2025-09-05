@@ -1,19 +1,20 @@
-/* index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
+/* Custom button styles */
 @layer components {
   .btn-primary {
-    @apply bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors;
+    @apply bg-indigo-600 text-white px-4 py-2 rounded-lg 
+           hover:bg-indigo-700 transition-colors;
   }
-  
+
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors;
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg 
+           hover:bg-gray-300 transition-colors 
+           dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
   }
 }
-
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -31,4 +32,17 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937; /* gray-800 */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563; /* gray-600 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280; /* gray-500 */
 }

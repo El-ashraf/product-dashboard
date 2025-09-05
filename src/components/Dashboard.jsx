@@ -1,3 +1,4 @@
+// src/components/Dashboard.jsx
 import React from "react";
 
 const Dashboard = () => {
@@ -10,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-4 sm:p-6">
-      <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6">
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">
         📊 Dashboard
       </h1>
 
@@ -19,10 +20,10 @@ const Dashboard = () => {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-white shadow-md rounded-xl p-4 sm:p-5 hover:shadow-lg transition"
+            className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-4 sm:p-5 hover:shadow-lg transition"
           >
-            <h2 className="text-gray-500 text-xs sm:text-sm">{stat.title}</h2>
-            <p className="text-xl sm:text-2xl font-bold text-gray-800">
+            <h2 className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">{stat.title}</h2>
+            <p className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100">
               {stat.value}
             </p>
             <span className="text-green-600 text-xs sm:text-sm">

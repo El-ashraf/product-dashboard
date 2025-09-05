@@ -53,11 +53,12 @@ function App() {
 
   return (
     <Router>
-      <div className="flex min-h-screen bg-gray-100">
+      {/* ✅ Added dark mode support here */}
+      <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Sidebar />
         <div className="flex-1 flex flex-col">
           <Header cart={cart} />
-          <main className="flex-1 overflow-auto">
+          <main className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <Routes>
               {/* ✅ Dashboard */}
               <Route path="/" element={<Dashboard />} />
@@ -95,6 +96,8 @@ function App() {
             </Routes>
           </main>
         </div>
+
+        {/* Toast container will look good in both modes */}
         <ToastContainer
           position="bottom-right"
           autoClose={3000}
@@ -105,6 +108,7 @@ function App() {
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          theme="colored" // ✅ adapts to dark/light automatically
         />
       </div>
     </Router>

@@ -1,3 +1,4 @@
+// src/components/ProductDetail.jsx
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import productsData from "../data/products.json";
@@ -15,16 +16,16 @@ const ProductDetail = ({ addToCart, cart }) => {
   if (!product) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-xl shadow-sm border p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border dark:border-gray-700 p-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             Product Not Found
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
             The product you're looking for doesn't exist.
           </p>
           <Link
             to="/"
-            className="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center"
+            className="text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 font-medium inline-flex items-center"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Products
@@ -50,9 +51,9 @@ const ProductDetail = ({ addToCart, cart }) => {
     <div className="container mx-auto px-4 py-8">
       <div className="grid md:grid-cols-2 gap-8">
         {/* ✅ Product Image */}
-        <div className="bg-gray-100 rounded-xl flex items-center justify-center p-6">
+        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center p-6">
           <img
-            src={product.imageUrl} // ✅ FIXED: use imageUrl instead of image
+            src={product.imageUrl}
             alt={product.name}
             className="max-h-[400px] object-contain"
           />
@@ -60,8 +61,8 @@ const ProductDetail = ({ addToCart, cart }) => {
 
         {/* ✅ Product Info */}
         <div>
-          <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
-          <p className="mt-2 text-gray-600">{product.description}</p>
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">{product.name}</h1>
+          <p className="mt-2 text-gray-600 dark:text-gray-300">{product.description}</p>
           <div className="mt-4 flex items-center">
             <span className="text-3xl font-bold text-indigo-600">
               ${product.price}
@@ -82,16 +83,16 @@ const ProductDetail = ({ addToCart, cart }) => {
 
           {/* ✅ Quantity + Add to Cart */}
           <div className="flex items-center mt-8">
-            <div className="flex items-center border border-gray-300 rounded-lg">
+            <div className="flex items-center border border-gray-300 dark:border-gray-700 rounded-lg">
               <button
-                className="px-3 py-2 text-gray-600 hover:bg-gray-100"
+                className="px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => handleQuantityChange(-1)}
               >
                 -
               </button>
-              <span className="px-4 py-2">{quantity}</span>
+              <span className="px-4 py-2 text-gray-800 dark:text-gray-100">{quantity}</span>
               <button
-                className="px-3 py-2 text-gray-600 hover:bg-gray-100"
+                className="px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => handleQuantityChange(1)}
               >
                 +
@@ -106,7 +107,7 @@ const ProductDetail = ({ addToCart, cart }) => {
                   ? inCart
                     ? "bg-green-600 text-white cursor-default"
                     : "bg-indigo-600 text-white hover:bg-indigo-700"
-                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-300 cursor-not-allowed"
               }`}
             >
               {addingToCart ? (
