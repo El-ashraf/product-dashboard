@@ -1,11 +1,39 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Dashboard - React + Vite + Tailwind</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Halden — the control room for physical-product retail</title>
+    <meta
+      name="description"
+      content="Halden keeps catalog, stock, orders and revenue in one place, so small hardware retailers can stop reconciling spreadsheets and start making decisions."
+    />
+    <meta name="theme-color" content="#11131d" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8f9fb" media="(prefers-color-scheme: light)" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Resolve the theme before first paint so dark mode never flashes white. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('darkMode')
+          var dark =
+            stored === null
+              ? window.matchMedia('(prefers-color-scheme: dark)').matches
+              : stored === 'true'
+          if (dark) document.documentElement.classList.add('dark')
+        } catch (e) {
+          /* private mode: fall through to light */
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
